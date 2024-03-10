@@ -22,11 +22,16 @@ Rust
 Rust
 - [Raspberry Pi Pico scale](https://github.com/werediver/escale/tree/main)
 
-## Setup for Cross Compiling
+## Cross Compiling for RPi Zero W
 
+Install [cross and docker](https://github.com/cross-rs/cross/blob/main/docs/getting-started.md).
 ```
-sudo apt install gcc-arm-linux-gnueabihf libc6-armhf-cross libc6-dev-armhf-cross
-rustup target add arm-unknown-linux-gnueabihf
+cargo install cross --git https://github.com/cross-rs/cross
 ```
 
-
+Build/Deploy/Run
+```
+cross build --target arm-unknown-linux-gnueabihf
+scp target/arm-unknown-linux-gnueabihf/debug/kart_scale pi@scale.local:
+ssh -t pi@scale.local ./kart_scale
+```
