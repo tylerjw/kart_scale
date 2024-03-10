@@ -21,3 +21,12 @@ Rust
 
 Rust
 - [Raspberry Pi Pico scale](https://github.com/werediver/escale/tree/main)
+
+## Setup for Cross Compiling
+
+```
+sudo apt install gcc-arm-linux-gnueabihf libc6-armhf-cross libc6-dev-armhf-cross
+rustup target add arm-unknown-linux-gnueabihf
+```
+
+
